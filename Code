@@ -10,7 +10,7 @@ default
                             PRIM_POINT_LIGHT, FALSE, 
                             <0.0, 0.0, 0.0>, 0, 0, 0,
                             PRIM_FULLBRIGHT, ALL_SIDES, FALSE,
-                            PRIM_BUMP_SHINY, ALL_SIDES,                                             
+                            PRIM_BUMP_SHINY, ALL_SIDES,               
                             PRIM_SHINY_NONE, PRIM_BUMP_NONE,
                             PRIM_GLOW, ALL_SIDES, 0]);
         llSetStatus(STATUS_PHANTOM, FALSE);
@@ -36,14 +36,24 @@ default
                             PRIM_POINT_LIGHT, FALSE, 
                             <0.0, 0.0, 0.0>, 0, 0, 0]);
         llSleep(2.0);
+        
         llSetPrimitiveParams([PRIM_FULLBRIGHT, ALL_SIDES, TRUE,
                                 PRIM_BUMP_SHINY, ALL_SIDES,                                             
                                 PRIM_SHINY_MEDIUM, PRIM_BUMP_WEAVE]);
-        llSleep(2.0);
-        llSetPrimitiveParams([PRIM_GLOW, ALL_SIDES, 0.5]);
-        llSetStatus(STATUS_PHANTOM, TRUE);
-        llSetAlpha(0.25, ALL_SIDES);
         llSleep(5.0);
+        llSetPrimitiveParams([PRIM_FULLBRIGHT, ALL_SIDES, FALSE,
+                                PRIM_BUMP_SHINY, ALL_SIDES,
+                                PRIM_SHINY_NONE, PRIM_BUMP_NONE]);
+        llSleep(2.0);
+        
+        llSetPrimitiveParams([PRIM_GLOW, ALL_SIDES, 0.5]);
+        llSleep(2.0);
+        llSetStatus(STATUS_PHANTOM, TRUE);
+        llSetAlpha(0.1, ALL_SIDES);
+        llSleep(5.0);
+        llSetPrimitiveParams([PRIM_GLOW, ALL_SIDES, 0]);
+        llSetStatus(STATUS_PHANTOM, FALSE);
+        llSetAlpha(1, ALL_SIDES);      
         llResetScript();
     }
 }
